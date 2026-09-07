@@ -70,7 +70,22 @@ curl -fsSL https://nono.sh/install.sh | sh
 brew install nono
 ```
 
-**Other platforms** — Debian/Ubuntu, Fedora, Arch, RHEL, openSUSE, WSL2, and Nix: [see install instructions](https://nono.sh/docs/cli/getting_started/installation).
+#### Nix
+
+The project provides a Nix flake that builds from source (first run compiles the crate and its dependencies):
+
+```bash
+# Run without installing
+nix run github:nolabs-ai/nono
+
+# Install into your profile
+nix profile add github:nolabs-ai/nono
+
+# Pin to the latest release
+nix run "github:nolabs-ai/nono?ref=$(curl -fsSL https://api.github.com/repos/nolabs-ai/nono/releases/latest | jq -r .tag_name)"
+```
+
+**Other platforms** — Debian/Ubuntu, Fedora, Arch, RHEL, openSUSE, WSL2: [see install instructions](https://nono.sh/docs/cli/getting_started/installation).
 
 ## Run it!
 
